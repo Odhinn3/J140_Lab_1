@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,10 +21,12 @@ public class PrimaryController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event){
-        
+        try{
+            new UserStage().init();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
-    
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

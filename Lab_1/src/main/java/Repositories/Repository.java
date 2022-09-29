@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Data;
 
+package Repositories;
+
+import Data.User;
 import MainPack.ApplicationProperties;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -38,7 +37,17 @@ public class Repository implements RepositoryInterface{
 
     @Override
     public User checkUsers(String name, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Repository repo = new Repository();
+        List users = repo.getUsers();
+        Iterator iterator = users.iterator();
+        while(iterator.hasNext()){
+            User user = (User) iterator.next();
+            if(user.getName().equals(name)||user.getPassword().equals(password)){
+                System.out.println("User exists");
+                return user;
+            }
+        }
+        return null;
     }
     
 }

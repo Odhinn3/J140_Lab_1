@@ -1,0 +1,7 @@
+Gui\UserStage.class
+MainPack\ApplicationProperties.class
+Repositories\RepositoryInterface.class
+Data\User.class
+Gui\PrimaryController.class
+Repositories\Repository.class
+MainPack\App.class
