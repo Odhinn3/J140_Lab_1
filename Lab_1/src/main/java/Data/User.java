@@ -75,7 +75,5 @@ public class User {
             return false;
         }
         return Objects.equals(this.password, other.password);
-    }
-    
-    
+    }    
 }
