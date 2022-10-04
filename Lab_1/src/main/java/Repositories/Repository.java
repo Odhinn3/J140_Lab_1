@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import static MainPack.App.getUser;
+import static MainPack.App.getPassword;
 
 /**
  *
@@ -42,10 +44,10 @@ public class Repository implements RepositoryInterface{
         Iterator iterator = users.iterator();
         while(iterator.hasNext()){
             User user = (User) iterator.next();
-            if(user.getName().equals(name)||user.getPassword().equals(password)){
-                System.out.println("User exists");
+            if(user.getName().equals(getUser())&user.getPassword().equals(getPassword())){
+                System.out.println("Login success!");
                 return user;
-            }
+            } else System.out.println("Login failed!");
         }
         return null;
     }
