@@ -32,9 +32,7 @@ public class App extends Application {
         
         VBox root = new VBox();
         root.getChildren().addAll(textField1, textField2, btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
+        Scene scene = new Scene(root, 300, 250);        
         stage.setTitle("User login");
         stage.setScene(scene);
         stage.show();
