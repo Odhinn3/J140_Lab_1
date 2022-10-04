@@ -1,10 +1,13 @@
 package MainPack;
 
+import Gui.UserStage;
 import Repositories.Repository;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -17,6 +20,10 @@ import javafx.scene.layout.VBox;
 public class App extends Application {
     private static String user;
     private static String password;
+    
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,9 +32,15 @@ public class App extends Application {
         Button btn = new Button();
         btn.setText("Log in");
         btn.setOnAction((ActionEvent) -> {
-            user = textField1.getText();
-            password = textField2.getText();
+            setUser(textField1.getText());
+            setPassword(textField2.getText());
             new Repository().checkUsers("admin", "admin");
+            UserStage userstage = new UserStage();
+            try {
+                userstage.init(stage);
+            } catch (IOException ex) {
+                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
         
         VBox root = new VBox();
@@ -36,10 +49,6 @@ public class App extends Application {
         stage.setTitle("User login");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
     
     public static String getUser() {

@@ -13,8 +13,11 @@ import static MainPack.App.getPassword;
  *
  * @author A.Konnov <github.com/Odhinn3>
  */
+
 public class Repository implements RepositoryInterface{
     
+    public static String loginstatus;
+   
     public List<User> getUsers(){
         String url = ApplicationProperties.get().getProperty("db.url");
         String dbUser = ApplicationProperties.get().getProperty("db.user");
@@ -44,10 +47,18 @@ public class Repository implements RepositoryInterface{
         while(iterator.hasNext()){
             User user = (User) iterator.next();
             if(user.getName().equals(getUser())&user.getPassword().equals(getPassword())){
-                System.out.println("Login success!");
+                setLoginstatus("Login success!");
                 return user;
-            } else System.out.println("Login failed!");
+            } else setLoginstatus("Login failed!");
         }
         return null;
+    }
+
+    public static String getLoginstatus() {
+        return loginstatus;
+    }
+
+    public static void setLoginstatus(String loginstatus) {
+        Repository.loginstatus = loginstatus;
     }
 }
