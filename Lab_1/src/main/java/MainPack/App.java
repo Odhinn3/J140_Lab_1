@@ -2,19 +2,18 @@ package MainPack;
 
 import Repositories.Repository;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 /**
- * JavaFX App
+ *
+ * @author A.Konnov <github.com/Odhinn3>
  */
+
 public class App extends Application {
     private static String user;
     private static String password;
