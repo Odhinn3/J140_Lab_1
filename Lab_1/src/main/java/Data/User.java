@@ -1,5 +1,4 @@
 package Data;
-
 import java.util.Objects;
 
 /**

@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Gui;
-
-
-import Repositories.Repository;
-import Repositories.RepositoryInterface;
+import static Repositories.Repository.loginstatus;
 import java.io.IOException;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -18,17 +11,17 @@ import javafx.stage.Stage;
  * @author A.Konnov <github.com/Odhinn3>
  */
 public class UserStage extends Stage {
-    private RepositoryInterface repo;
 
-    public UserStage() {
-        repo = new Repository();
-    }
-    
-    public void init() throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("primary.fxml"));
-        Scene scene = new Scene(root);
-        setTitle("Users");
-        setScene(scene);
-        show();
+    public void init(Stage stage) throws IOException{
+        Label label = new Label();
+        VBox root = new VBox();
+        label.setText(loginstatus);
+        
+        root.getChildren().addAll(label);
+        
+        Scene scene = new Scene(root, 300, 250);
+        stage.setTitle("Login status");
+        stage.setScene(scene);
+        stage.show();
     }
 }

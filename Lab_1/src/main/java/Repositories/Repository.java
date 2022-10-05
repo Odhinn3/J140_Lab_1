@@ -1,5 +1,4 @@
 package Repositories;
-
 import Data.User;
 import MainPack.ApplicationProperties;
 import java.sql.*;

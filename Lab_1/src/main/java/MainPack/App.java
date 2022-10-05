@@ -1,5 +1,4 @@
 package MainPack;
-
 import Gui.UserStage;
 import Repositories.Repository;
 import javafx.application.Application;
